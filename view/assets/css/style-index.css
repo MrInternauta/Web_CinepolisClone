@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+
+header {
+    width: 100%;
+    background: rgb(41,89,153);
+}
+
+nav {
+    width: 70%;
+    height: 60px;
+    margin: auto;
+    background: rgb(41,89,153);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo img {
+    margin-top: 4px;
+}
+
+.seleccion-cartelera form {
+    margin-left: 25px;
+}
+
+.seleccion-cartelera form select {
+    padding: 5px 10px;
+    margin-left: 15px;
+    color: #777;
+    font-size: 12px;
+    border: none;
+    border-radius: 1px;
+}
+
+.seleccion-cartelera form #ver-cartelera {
+    padding: 7px 6px 5px 6px;
+    margin-left: 15px;
+    color: #222;
+    font-size: 12px;
+    font-weight: bold;
+    background: rgb(232,180,57);
+    border: none;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.login-usuario {
+    background: rgb(25, 68, 126);
+    height: 100%;
+    width: 90px;
+    margin-left: 45px;
+}
+
+.login-usuario a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #efefef;
+    text-decoration: none;
+}
+
+.login-usuario a img {
+    margin-top: 12px;
+}
+
+.linea-dos {
+    width: 100%;
+    background: #333;
+}
+
+.linea-dos-container {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.enlaces {
+    display: flex;
+}
+
+.enlaces div {
+    padding: 12px 10px;
+    color: #e8b439;
+    letter-spacing: 0.5px;
+}
+
+.social a{
+    font-size: 20px;
+    color: #888;
+    margin-right: 6px;
+}
+
+.cartelera {
+    width: 70%;
+    margin: 100px auto;
+}
+
+.cartelera .titulo {
+    background: #295999;
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 18px;
+}
+
+.galeria {
+    margin-top: 70px;
+}
+
+.galeria img {
+    width: 170px;
+}
+
+.galeria img:not(:first-of-type) {
+    margin-left: 50px;
+}
+
+.galeria img:nth-child(6) {
+    margin-left: 0;
+}
+
+.galeria img:nth-child(6), .galeria img:nth-child(7) {
+    margin-top: 30px;
+}
+
+.ver-cartelera {
+    display: flex;
+    position: absolute;
+    margin-left: 450px;
+    margin-top: -255px;
+    border: 3px solid #ccc;
+    padding: 68px 24px;
+}
+
+.ver-cartelera a {
+    color: #295999;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* .logoin{
+    background-image: url('../../assets/images/logo-id.png');
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**/

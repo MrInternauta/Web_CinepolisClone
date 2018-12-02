@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+
+header {
+    width: 100%;
+    background: #295999;
+}
+
+header div {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+header div * {
+    margin-left: 40px;
+    color: #fff;
+    font-size: 20px;
+}
+
+header div a {
+    font-size: 40px;
+}
+
+header div img {
+    margin-left: 10px;
+}
+
+header div span {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    margin-left: 170px;
+}
+.error{
+    margin-left: 40px;
+    color:red;
+    font-size: 20px;
+
+
+}
+
+/*Formulario del cliente*/
+.formulario-cliente-login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
+}
+
+.formulario-cliente-login form div {
+    margin-top: 30px;
+}
+
+
+.formulario-cliente-login form div label {
+    color: #666;
+    font-size: 26px;
+    margin-left: 8px;
+}
+
+.formulario-cliente-login form div input {
+    margin-top: 10px;
+    width: 250px;
+    height: 40px;
+    padding: 15px;
+    border: none;
+    border: 2px solid #666;
+    border-radius: 20px;
+}
+
+.formulario-cliente-login form input[type="submit"] {
+    margin-top: 30px;
+    width: 250px;
+    height: 45px;
+    border-radius: 20px;
+    background: #fdc500;
+    color: #000;
+    border: none;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+}
+/*End -- formulario del cliente*/
+
+.linea-gris {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: #333;
+    padding: 10px 0;
+}
+
+.linea-gris div {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.linea-gris div span {
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-size: 18px;
+}
+
+.linea-gris div a {
+    color: #ebb208;
+}
+/**/
