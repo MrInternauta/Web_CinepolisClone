@@ -2,13 +2,14 @@
 session_start();
 if(  !empty($_SESSION['usuario']) ){
     if($_SESSION['usuario']['tipo_user'] == 'empleado'){
-        header('Location: empleado/index.php');
+        header('Location: panel-administrativo.php');
     }
     if($_SESSION['usuario']['tipo_user'] == 'usuario'){
-            header('Location: cliente/index.php');
+             header('Location: home.php');
+    }
     }
     //echo $_SESSION['tipo_user'];
-}
+
     
     
 

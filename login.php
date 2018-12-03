@@ -2,7 +2,7 @@
 session_start();
 
 if(!empty($_SESSION['usuario']) ){
-    header('Location: home.php');
+    header('Location: panel-administrativo.php');
 }
 if( $_SERVER['REQUEST_METHOD'] == 'POST')
 {

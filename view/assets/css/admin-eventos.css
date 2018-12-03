@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+}
+
+header {
+    background: #0b5ba2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15%;
+}
+
+header * {
+    color: #fff;
+    font-size: 26px
+}
+
+header a {
+    display: inline-block;
+    height: 100%;
+    width: 100px;
+    padding: 8px 0;
+    text-align: center;
+    background: #0b5ba2;
+    font-size: 45px
+}
+
+header a:hover {background: #084173}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right img {
+    margin-left: 20px
+}
+
+.container {
+    width: 70%;
+    margin: 50px auto 50px auto;
+}
+
+.btns-accion {
+    margin-top: -20px;
+    position: absolute;
+    right: 18%;
+}
+
+.btns-accion input:nth-child(1) {
+    margin-right: 20px;
+    background: rgb(177, 27, 27);
+}
+
+.btns-accion input {
+    border: none;
+    padding: 8px 20px;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btns-accion input:nth-child(2) {
+    background: rgb(33, 124, 45)
+}
+
+
+fieldset {
+    padding: 30px;
+    border: 2px solid #0b5ba2;
+}
+
+.field2 {
+    margin-top: 30px;
+}
+
+fieldset legend {
+    padding: 0 15px;
+    font-size: 24px;
+    color: #0b5ba2
+}
+
+fieldset p {
+    margin-top: 15px;
+    color: #444;
+    font-size: 18px;
+}
+
+fieldset p input[type="text"], fieldset p input[type="number"] {
+    width: 200px;
+    height: 25px;
+    margin-left: 30px;
+}
+
+.btn-buscar {
+    padding: 0 10px;
+    height: 25px;
+    border: none;
+    background: #0b5ba2;
+    color: #fff;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+.btn-registrar {
+    padding: 8px 10px;
+    border: none;
+    background: #fdc500;
+    color: #000;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.t-evento * {
+    margin-left: 30px;
+}
+
+input:focus {
+    border: 1px solid #0b5ba3;
+    box-shadow: 0px 0px 4px 0px #4086c6;
+}
+/**/
