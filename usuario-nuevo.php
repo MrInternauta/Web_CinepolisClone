@@ -52,8 +52,34 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
 
 
 }
-if($_SERVER['REQUEST_METHOD']== 'GET'){
+if($_SERVER['REQUEST_METHOD']== "GET"){
+    $error="";
+    if(!empty($_GET['type']) && !empty($_GET['id'])){
+        $tipo = limpiarDatos($_GET['type']);
+        $id = limpiarDatos($_GET['id']);
+        switch ($tipo) {
+            case 'view':
+            $statement = $conn->prepare('SELECT * FROM USUARIO WHERE id_usuario = :id');
+            $statement->execute( array(
+                ':id' => $id,
+            ) );
+            $usuario = $statement->fetch();
+            print_r($usuario);
+                break;
 
+            case 'update':
+                # code...
+                break;
+
+            case 'delete':
+                # code...
+                break;
+            
+            default:
+                $error = 'Error: Acción no encontrada';
+                break;
+        }
+    }
 }
 
 

@@ -80,9 +80,9 @@
     <?php foreach($statement as $resultado): ?>
     <tr>
       <th scope="row">
-        <a type="button" href="admin-usuarios.php?type=delete&id=<?php echo $resultado['id_usuario']; ?>" class="btn btn-danger">Eliminar</a>
-        <a type="button" href="admin-usuarios.php?type=update&id=<?php echo $resultado['id_usuario']; ?>" class="btn btn-warning">Editar</a>
-        <a type="button" href="admin-usuarios.php?type=view&id=<?php echo $resultado['id_usuario']; ?>" class="btn btn-info">Ver</a>
+        <a type="button" href="usuario-nuevo.php?type=delete&id=<?php echo $resultado['id_usuario']; ?>" class="btn btn-danger">Eliminar</a>
+        <a type="button" href="usuario-nuevo.php?type=update&id=<?php echo $resultado['id_usuario']; ?>" class="btn btn-warning">Editar</a>
+        <a type="button" href="usuario-nuevo.php?type=view&id=<?php echo $resultado['id_usuario']; ?>" class="btn btn-info">Ver</a>
 
       </th>
       <th scope="row"><?php echo $resultado['id_usuario']; ?></th>

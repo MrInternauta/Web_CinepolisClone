@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: arial;
+    
 }
 
 .container {
@@ -12,6 +13,7 @@
     overflow: hidden;
     background: rgb(230, 230, 230);
     display: flex;
+    position: absolute;
 }
 
 .panel-izquierdo, .panel-derecho {

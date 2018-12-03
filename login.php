@@ -12,15 +12,14 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST')
         $user = $_POST['usuario'];
         require 'function.php';
         $conn = conectarabd();
-        $statement = $conn->prepare('SELECT * FROM usuario WHERE id_usuario = :id AND contrasenia = :pass');
+        $statement = $conn->prepare('SELECT * FROM USUARIO WHERE id_usuario = :id AND contrasenia = :pass');
         $statement->execute( array(
-            'id' => $user,
+            ':id' => $user,
             ':pass' => $pass
         ) );
         $resultados = $statement->fetch();
-        if( empty($resultados) ){
+        if( !$resultados ){
             $error = 'Usuario no encontrado';
-
         }else{
         $_SESSION['usuario'] = $resultados;
         header('Location: profile.php');

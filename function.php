@@ -7,9 +7,9 @@ function conectarabd(){
     $pass = '';
     /**
      * $host = 'localhost';
-    $dbname = 'id8098282_cinepolis';
-    $userdb = 'id8098282_root';
-    $pass = 'cinepolis@root';
+    *$dbname = 'id8098282_cinepolis';
+    *$userdb = 'id8098282_root';
+    *$pass = 'cinepolis@root';
      */
     try{
         $conn =  new PDO("mysql:host=$host;dbname=$dbname", $userdb, $pass);
@@ -52,7 +52,7 @@ function obtener_usuarios($usuarios_por_pagina, $conexion){
 
 	//3.- Preparamos nuestra consulta trayendo la informacion e indicandole desde donde y cuantas filas.
 	// Ademas le pedimos que nos cuente cuantas filas tenemos.
-	$sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM usuario LIMIT {$inicio}, {$usuarios_por_pagina}");
+	$sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM USUARIO LIMIT {$inicio}, {$usuarios_por_pagina}");
 
 	$sentencia->execute();
 	return $sentencia->fetchAll();
@@ -77,8 +77,8 @@ function total_registros($de, $conexion){
 	return $total_post->fetch()['total'];
 }
 
-function call_method($tipo, $conexion, $data ){
-	$total_post = $conexion->prepare("CALL ");
+function call_Select($tipo, $conexion ){
+	$total_post = $conexion->prepare("CALL {$tipo}");
 	$total_post->execute();
 	return $total_post->fetch()['total'];
 
