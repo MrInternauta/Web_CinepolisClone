@@ -2,7 +2,6 @@
 include('header_sesion.php');
 ?>
 
-<div class="container m-5">
 
 
 <button type="button" class="btn btn-success" onclick="window.location.href='usuario-nuevo.php'" >Crear usuario</button>
@@ -86,7 +85,6 @@ include('header_sesion.php');
 </table>
 
 
-</div>
 <?php
 include('footer_sesion.php');
 ?>

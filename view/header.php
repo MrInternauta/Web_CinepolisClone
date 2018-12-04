@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Cinepolis | Home</title>
+        <link rel="icon" type="image/x-icon" href="https://static.cinepolis.com/favicon.ico" />
         <link rel="stylesheet" href="view/assets/css/normalize.min.css">
         <link rel="stylesheet" href="view/assets/css/style-index.css">
 

@@ -2,7 +2,6 @@
 include('header_sesion.php');
 ?>
 
-<div class="container m-5">
 <h2>Evento</h2>
 <div >
             <!-- class="form-login-cliente" -->
@@ -42,15 +41,7 @@ include('header_sesion.php');
     </div>
 
 
-    <!-- HASTA ACÁ. -->
 
-    <div class="linea-gris">
-        <div>
-            <span>Cinépolis México, SA. DE C.V.</span>
-            <a href="#">ADMINISTRATIVO</a>
-        </div>
-    </div>
-</div>
 <?php
 include('footer_sesion.php');
 ?>

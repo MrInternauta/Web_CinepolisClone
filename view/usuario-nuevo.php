@@ -3,13 +3,14 @@ include('header_sesion.php');
 ?>
 
 <h2>Usuario</h2>
+<form method='POST' action = 'usuario-nuevo.php'>
+
 <div class="card m-5">
 
         <div class="card-header">
             Perfil
         </div>
         <div class="card-body">
-        <form method='POST' action = 'usuario-nuevo.php'>
             <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Nombre:</label>
                     <input type="text" class="form-control" id="recipient-name"  name="nombre" value="<?php if(!empty($usuario['nombres'])) echo $usuario['nombres']; ?>">
@@ -48,8 +49,11 @@ include('header_sesion.php');
                         <input type="file" class="custom-file-input" id="inputGroupFile01" name="foto" value='<?php if(!empty($usuario['img']))  echo $usuario['img']; ?>'>
                         <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                     </div>
+        </div>
             </div>
-            <?php
+</div>
+
+ <?php
             include('view/direccion-nuevo.php');
             include('view/empleado-nuevo.php');
             ?>
@@ -60,14 +64,11 @@ include('header_sesion.php');
                 }
             ?>
             <input  type="submit" class="btn btn-success form-group" >
-
-    
+        
             
     </form>
 
-        </div>
-</div>
-        
+
     
 
  

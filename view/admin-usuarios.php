@@ -4,7 +4,6 @@ include('header_sesion.php');
 ?>
 
 
-     <div class="content m-4" >
 
 <button type="button" class="btn btn-success" onclick="window.location.href='usuario-nuevo.php'" >Crear usuario</button>
 
@@ -68,8 +67,7 @@ include('header_sesion.php');
     <tr>
       <th scope="row">
         <button type="button" onclick="window.location.href='usuario-nuevo.php?type=delete&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-danger">Eliminar</b>
-        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=update&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-warning">Editar</b>
-        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=view&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-info">Ver</b>
+        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=view&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-warning">Ver/Editar</b>
 
       </th>
       <th scope="row"><?php echo $resultado['id_usuario']; ?></th>
@@ -86,10 +84,6 @@ include('header_sesion.php');
   </tbody>
 </table>
 
-
-
-
-</div>
 <?php
 include('footer_sesion.php');
 ?>
