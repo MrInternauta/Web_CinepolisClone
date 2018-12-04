@@ -1,22 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cinepolis | Usuario</title>
-    <link rel="stylesheet" href="view/assets/css/login.css">
-</head>
-<body>
-    <header>
-        <div>
-            <a href="panel-administrativo.php"><i class="fas fa-angle-left"></i></a>
-            <img src="view/assets/images/cinepolis-mono.png" height="50px">
-            <span>Crear Usuario</span>
-        </div>
-    </header>
-    <div class="content m-4" >
+
+<?php
+include('header_sesion.php');
+?>
+
+
+     <div class="content m-4" >
 
 <button type="button" class="btn btn-success" onclick="window.location.href='usuario-nuevo.php'" >Crear usuario</button>
 
@@ -99,16 +87,9 @@
 </table>
 
 
+
+
 </div>
-
-
-   
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <script type="text/javascript" src="view/assets/js/fontawesome.js"></script>
-</body>
-</html>
+<?php
+include('footer_sesion.php');
+?>

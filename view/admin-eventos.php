@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cinepolis | Registrar Evento </title>
-    <link rel="stylesheet" href="view/assets/css/admin-eventos.css">
-     <link rel="stylesheet" href="view/assets/css/login.css">
-</head>
-<body>
-    <header>
-        <div>
-            <a href="panel-administrativo.php"><i class="fas fa-angle-left"></i></a>
-            <img src="view/assets/images/cinepolis-mono.png" height="50px">
-            <span>Registrar Evento</span>
-        </div>
-    </header>
+<?php
+include('header_sesion.php');
+?>
 
-    <!-- MODIFIQUE DE AQUI... -->
-    <!-- class="formulario-cliente-login" -->
-    <div >
+<div class="container m-5">
+<h2>Evento</h2>
+<div >
             <!-- class="form-login-cliente" -->
         <form  action="panel-eventos.php" method="post">
             <FONT SIZE="4"><H1><P align="center">Registrar Nuevo Evento</P></H1></FONT>
@@ -65,7 +50,11 @@
             <a href="#">ADMINISTRATIVO</a>
         </div>
     </div>
+</div>
+<?php
+include('footer_sesion.php');
+?>
 
-    <script type="text/javascript" src="view/assets/js/fontawesome.js"></script>
-</body>
-</html>
+
+
+
