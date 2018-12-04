@@ -6,6 +6,7 @@ if(empty($_SESSION['usuario'])   || $_SESSION['usuario']['tipo_user'] != 'emplea
 }
 $conn = conectarabd();
 $error = '';
+
 if($_SERVER['REQUEST_METHOD']== 'POST'){
     if(  !empty($_POST['nombre']) &&
          !empty($_POST['apellido']) &&
@@ -59,15 +60,21 @@ if($_SERVER['REQUEST_METHOD']== "GET"){
         $id = limpiarDatos($_GET['id']);
         switch ($tipo) {
             case 'view':
-            $statement = $conn->prepare('SELECT * FROM USUARIO WHERE id_usuario = :id');
+            $statement = $conn->prepare('CALL MOSTRAR_USUARIO(:id)');
             $statement->execute( array(
                 ':id' => $id,
             ) );
             $usuario = $statement->fetch();
-            print_r($usuario);
                 break;
 
             case 'update':
+
+            $statement = $conn->prepare('CALL MOSTRAR_USUARIO(:id)');
+            $statement->execute( array(
+                ':id' => $id,
+            ) );
+            $usuario = $statement->fetch();
+
                 # code...
                 break;
 

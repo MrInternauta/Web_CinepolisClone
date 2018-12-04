@@ -9,7 +9,9 @@
 
 <select name="municipios">
 
-<option value="todo el estado">todo el estado</option>
+
+
+<option value="<?php if(!empty($usuario['ciudad'])) { echo $usuario['ciudad']; }else{ echo "Acajete";} ?>"> <?php if(!empty($usuario['ciudad'])) { echo $usuario['ciudad']; }else{ echo "Acajete";} ?></option>
 
 <option value="Acajete">Acajete</option>
 
@@ -439,20 +441,20 @@
 
         <div class="form-group">
             <label for="recipient-name" class="col-form-label">Codigo postal</label>
-            <input type="text" class="form-control" id="recipient-name" name="cp">
+            <input type="text" class="form-control" id="recipient-name" name="cp" value="<?php if(!empty($usuario['codigo_postal'])) echo $usuario['codigo_postal']; ?>"> 
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Colonia</label>
-            <input type="text" class="form-control" id="recipient-name" name="colonia">
+            <input type="text" class="form-control" id="recipient-name" name="colonia" value="<?php if(!empty($usuario['colonia'])) echo $usuario['colonia']; ?>">
           </div>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Calle</label>
-            <input type="text" class="form-control" id="recipient-name" name="calle">
+            <input type="text" class="form-control" id="recipient-name" name="calle" value="<?php if(!empty($usuario['calle'])) echo $usuario['calle']; ?>">
           </div>
 
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Num int/ext</label>
-            <input type="text" class="form-control" id="recipient-name" name="num">
+            <input type="text" class="form-control" id="recipient-name" name="num" value="<?php if(!empty($usuario['numero'])) echo $usuario['numero']; ?>">
           </div>
           
 
