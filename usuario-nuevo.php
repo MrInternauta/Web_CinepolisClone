@@ -6,8 +6,8 @@ if(empty($_SESSION['usuario'])   || $_SESSION['usuario']['tipo_user'] != 'emplea
 }
 $conn = conectarabd();
 $error = '';
-
-if($_SERVER['REQUEST_METHOD']== 'POST'){
+if($_SERVER['REQUEST_METHOD']== 'POST'){    
+    
     if( 
         !empty($_POST['nombre']) &&
          !empty($_POST['apellido']) &&
@@ -16,23 +16,31 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
          !empty($_POST['nacimiento']) &&
          !empty($_POST['tipo'])
           ) {
-
-        $nombre =  limpiarDatos($_POST['nombre']);
-        $apellido =  limpiarDatos($_POST['apellido']);
-        $email =  limpiarDatos($_POST['email']);
-        $pass =  limpiarDatos($_POST['pass']);
-        $nacimiento =  limpiarDatos($_POST['nacimiento']);
-        $tipo =  limpiarDatos($_POST['tipo']);
-        //$id_direccion =  limpiarDatos($_POST['id_direccion']);
-        $id_direccion = 'D3522';
-        
-        $total =   total_registros('USUARIO', $conn);
-        $id_usuario = (int) $total;
-        $id_usuario =  $id_usuario + 1001;
-        $id_usuario =   'U'. $id_usuario;
-        $statement = $conn->prepare('CALL CREAR_USUARIO(:ID_USU, :ID_DIR, :NOM, :APL, :COR,	:CONT, :FECH, :TIP, :IM)');
+              //GET DATA
+            $nombre =  limpiarDatos($_POST['nombre']);
+            $apellido =  limpiarDatos($_POST['apellido']);
+            $email =  ($_POST['email']);
+            $pass =  limpiarDatos($_POST['pass']);
+            $nacimiento =  limpiarDatos($_POST['nacimiento']);
+            $tipo =  limpiarDatos($_POST['tipo']);
+            $id_direccion;
+            $id_usuario;
+            
+            //realiza update 
+            if(!empty($_SESSION['id_usuario']) && !empty($_SESSION['id_direccion'])){
+                $id_direccion = $_SESSION['id_direccion'];
+                $id_usuario = $_SESSION['id_usuario'];
+                $statement = $conn->prepare('CALL EDITAR_USUARIO(:ID_USU, :ID_DIR, :NOM, :APL, :COR,	:CONT, :FECH, :TIP, :IM)');
+            }else{
+                $total =   total_registros('USUARIO', $conn);
+                $id_usuario = (int) $total;
+                $id_usuario =  $id_usuario + 2001;
+                $id_usuario =   'U'. $id_usuario;
+                $id_direccion = $_POST['id_direccion'];
+                $statement = $conn->prepare('CALL CREAR_USUARIO(:ID_USU, :ID_DIR, :NOM, :APL, :COR,	:CONT, :FECH, :TIP, :IM)');
+            }
             $usuario = $statement->execute( array(
-                ':ID_USU' => $id_usuario . '', 
+                ':ID_USU' => $id_usuario, 
                 ':ID_DIR' => $id_direccion, 
                 ':NOM' => $nombre, 
                 ':APL' => $apellido, 
@@ -42,7 +50,10 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                 ':TIP' => $tipo, 
                 ':IM' => ''
             ) );
-     
+            $_SESSION['id_direccion'] = null;
+            $_SESSION['id_usuario'] = null;
+            echo "Listo";
+        header('Location: panel-usuarios.php');
     }else{
         $error = 'Faltan datos';
     }
@@ -61,7 +72,7 @@ if($_SERVER['REQUEST_METHOD']== "GET"){
                 ':id' => $id
             ) );
             $usuario = $statement->fetch();
-
+            //print_r($usuario);
                 break;
 
             case 'delete':

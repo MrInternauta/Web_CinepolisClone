@@ -3,13 +3,10 @@ include('header_sesion.php');
 ?>
 
 <h2>Usuario</h2>
-<?php if( !empty($usuario) ): ?>
-        <form method='GET' action = 'usuario-actualizar.php?id=<?php if( !empty($usuario) ) echo $usuario['id_usuario']; ?>'>
-<?php endif; ?>
+
             
-<?php if( empty($usuario) ): ?>
+
         <form method='POST' action = 'usuario-nuevo.php'>
-<?php endif; ?>
 
 <div class="card m-5">
 
@@ -17,6 +14,13 @@ include('header_sesion.php');
             Perfil
         </div>
         <div class="card-body">
+        <?php if( !empty($usuario) ): ?>
+        <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">ID usuario:</label>
+                    <input type="text" class="form-control" id="recipient-name" name="id_usuario" disabled value="<?php if(!empty($usuario[0])) echo $_SESSION['id_usuario'] =  $usuario[0]; ?>">
+            </div>
+        <?php endif; ?>
+
             <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Nombre:</label>
                     <input type="text" class="form-control" id="recipient-name"  name="nombre" value="<?php if(!empty($usuario['nombres'])) echo $usuario['nombres']; ?>">
@@ -24,21 +28,32 @@ include('header_sesion.php');
 
             <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Apellido:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="apellido"  name="nombre" value="<?php if(!empty($usuario['apellidos']))  echo $usuario['apellidos']; ?>">
+                    <input type="text" class="form-control" id="recipient-name" name="apellido"  value="<?php if(!empty($usuario['apellidos']))  echo $usuario['apellidos']; ?>">
              </div>
 
             <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Email:</label>
-                    <input type="email" class="form-control" id="recipient-name" name="email" name="nombre" value="<?php if(!empty($usuario['correo']))  echo $usuario['correo']; ?>">
+                    <input type="email" class="form-control" id="recipient-name" name="email"  value="<?php if(!empty($usuario['correo']))  echo $usuario['correo']; ?>">
             </div>
             <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">ID direccion:</label>
+                    <?php if( !empty($usuario) ): ?>
+                    <input type="text" class="form-control" id="recipient-name" name="id_direccion"   disabled value="<?php if(!empty($usuario[1])) echo $_SESSION['id_direccion'] =  $usuario[1]; ?>">
+                <?php endif; ?>
+                            
+                <?php if( empty($usuario) ): ?>
+                <input type="text" class="form-control" id="recipient-name" name="id_direccion"   >
+                <?php endif; ?>
+            </div>
+
+            <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                    <input type="text" class="form-control" id="recipient-name" name="pass" name="nombre" value="<?php if(!empty($usuario['contrasenia']))  echo $usuario['contrasenia']; ?>">
+                    <input type="text" class="form-control" id="recipient-name" name="pass"  value="<?php if(!empty($usuario['contrasenia']))  echo $usuario['contrasenia']; ?>">
             </div>
 
             <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Fecha de nacimiento:</label>
-                    <input type="date" class="form-control" id="recipient-name" name="nacimiento" name="nombre" value="<?php if(!empty($usuario['fechanacimiento']))  echo $usuario['fechanacimiento']; ?>" >
+                    <input type="date" class="form-control" id="recipient-name" name="nacimiento"  value="<?php if(!empty($usuario['fechanacimiento']))  echo $usuario['fechanacimiento']; ?>" >
             </div>
                 
             <div class="form-group">
