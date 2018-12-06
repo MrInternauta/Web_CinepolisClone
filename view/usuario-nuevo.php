@@ -3,7 +3,13 @@ include('header_sesion.php');
 ?>
 
 <h2>Usuario</h2>
-<form method='POST' action = 'usuario-nuevo.php'>
+<?php if( !empty($usuario) ): ?>
+        <form method='GET' action = 'usuario-actualizar.php?id=<?php if( !empty($usuario) ) echo $usuario['id_usuario']; ?>'>
+<?php endif; ?>
+            
+<?php if( empty($usuario) ): ?>
+        <form method='POST' action = 'usuario-nuevo.php'>
+<?php endif; ?>
 
 <div class="card m-5">
 
@@ -54,8 +60,8 @@ include('header_sesion.php');
 </div>
 
  <?php
-            include('view/direccion-nuevo.php');
-            include('view/empleado-nuevo.php');
+            //include('view/direccion-nuevo.php');
+            //include('view/empleado-nuevo.php');
             ?>
         
             <?php
@@ -63,8 +69,9 @@ include('header_sesion.php');
                     echo "<div class='alert alert-danger m-5' role='alert'>$error</div>";
                 }
             ?>
-            <input  type="submit" class="btn btn-success form-group" >
-        
+     
+            <input  type="submit" class="btn btn-success form-group">
+
             
     </form>
 

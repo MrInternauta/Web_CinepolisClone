@@ -8,45 +8,41 @@ $conn = conectarabd();
 $error = '';
 
 if($_SERVER['REQUEST_METHOD']== 'POST'){
-    if(  !empty($_POST['nombre']) &&
+    if( 
+        !empty($_POST['nombre']) &&
          !empty($_POST['apellido']) &&
          !empty($_POST['email']) &&
          !empty($_POST['pass']) &&
          !empty($_POST['nacimiento']) &&
-         !empty($_POST['tipo']) &&
-         !empty($_POST['municipios']) &&
-         !empty($_POST['cp']) &&
-         !empty($_POST['colonia']) &&
-         !empty($_POST['calle']) &&
-         !empty($_POST['num']) &&
-         !empty($_POST['sxh']) &&
-         !empty($_POST['hs']) &&
-         !empty($_POST['contratacion']) &&
-         !empty($_POST['puesto'])
-    ){
+         !empty($_POST['tipo'])
+          ) {
 
-
-
-
-        $nombre = limpiarDatos($_POST['nombre']);
-        $apellido = limpiarDatos($_POST['apellido']);
-        $email = limpiarDatos($_POST['email']);
-        $pass = limpiarDatos($_POST['pass']);
-        $nacimiento = limpiarDatos($_POST['nacimiento']);
-        $tipo = limpiarDatos($_POST['tipo']);
-        $municipios = limpiarDatos($_POST['municipios']);
-        $cp = limpiarDatos($_POST['cp']);
-        $colonia = limpiarDatos($_POST['colonia']);
-        $calle = limpiarDatos($_POST['calle']);
-        $num = limpiarDatos($_POST['num']);
-        $sxh = limpiarDatos($_POST['sxh']);
-        $hs = limpiarDatos($_POST['hs']);
-        $contratacion = limpiarDatos($_POST['contratacion']);
-        $puesto = limpiarDatos($_POST['puesto']);
-        $estado = 'Veracruz';
-        $error = 'Aun me falta programar esta parte...';
-
+        $nombre =  limpiarDatos($_POST['nombre']);
+        $apellido =  limpiarDatos($_POST['apellido']);
+        $email =  limpiarDatos($_POST['email']);
+        $pass =  limpiarDatos($_POST['pass']);
+        $nacimiento =  limpiarDatos($_POST['nacimiento']);
+        $tipo =  limpiarDatos($_POST['tipo']);
+        //$id_direccion =  limpiarDatos($_POST['id_direccion']);
+        $id_direccion = 'D3522';
         
+        $total =   total_registros('USUARIO', $conn);
+        $id_usuario = (int) $total;
+        $id_usuario =  $id_usuario + 1001;
+        $id_usuario =   'U'. $id_usuario;
+        $statement = $conn->prepare('CALL CREAR_USUARIO(:ID_USU, :ID_DIR, :NOM, :APL, :COR,	:CONT, :FECH, :TIP, :IM)');
+            $usuario = $statement->execute( array(
+                ':ID_USU' => $id_usuario . '', 
+                ':ID_DIR' => $id_direccion, 
+                ':NOM' => $nombre, 
+                ':APL' => $apellido, 
+                ':COR' => $email,	
+                ':CONT' => $pass, 
+                ':FECH' => $nacimiento, 
+                ':TIP' => $tipo, 
+                ':IM' => ''
+            ) );
+     
     }else{
         $error = 'Faltan datos';
     }
@@ -61,25 +57,21 @@ if($_SERVER['REQUEST_METHOD']== "GET"){
         switch ($tipo) {
             case 'view':
             $statement = $conn->prepare('CALL MOSTRAR_USUARIO(:id)');
-            $statement->execute( array(
-                ':id' => $id,
-            ) );
-            $usuario = $statement->fetch();
-                break;
-
-            case 'update':
-
-            $statement = $conn->prepare('CALL MOSTRAR_USUARIO(:id)');
-            $statement->execute( array(
-                ':id' => $id,
+            $usuario = $statement->execute( array(
+                ':id' => $id
             ) );
             $usuario = $statement->fetch();
 
-                # code...
                 break;
 
             case 'delete':
-                # code...
+                
+            $statement = $conn->prepare('DELETE FROM USUARIO WHERE id_usuario = :id');
+            $usuario = $statement->execute( array(
+                ':id' => $id
+            ) );
+            $usuario = $statement->fetch();
+            header('Location: panel-usuarios.php');
                 break;
             
             default:

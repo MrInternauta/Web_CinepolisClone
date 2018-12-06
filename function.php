@@ -74,7 +74,8 @@ function numero_paginas($post_por_pagina, $conexion){
 function total_registros($de, $conexion){
 	$total_post = $conexion->prepare("SELECT count(*) FROM {$de} as total");
 	$total_post->execute();
-	return $total_post->fetch()['total'];
+	$val = $total_post->fetch();
+	return ($val[0]);
 }
 
 function call_Select($tipo, $conexion ){

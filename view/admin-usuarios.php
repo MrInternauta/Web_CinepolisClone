@@ -66,8 +66,8 @@ include('header_sesion.php');
     <?php foreach($statement as $resultado): ?>
     <tr>
       <th scope="row">
-        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=delete&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-danger">Eliminar</b>
-        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=view&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-warning">Ver/Editar</b>
+        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=delete&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-danger">Eliminar</button>
+        <button type="button" onclick="window.location.href='usuario-nuevo.php?type=view&id=<?php echo $resultado['id_usuario']; ?>'"  class="btn btn-warning">Ver/Editar</button>
 
       </th>
       <th scope="row"><?php echo $resultado['id_usuario']; ?></th>
