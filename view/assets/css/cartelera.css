@@ -1,0 +1,91 @@
+.container-cartelera {
+    width: 70%;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    margin-top: 60px;
+ }
+ 
+ .container-dia {
+    width: 250px;
+ }
+ 
+ .container-items-cartelera {
+    width: 550px;
+ }
+ 
+ .div-complejo {
+    width: 100%;
+    background: #0b5ba1;
+    padding: 14px 0;
+    color: #fff;
+ }
+ 
+ .div-complejo span {
+    margin-left: 15px;
+    font-size: 18px;
+ }
+ 
+ .info-pelicula {
+    margin-left: 14px;
+ }
+ 
+ .pelicula1 {
+    display: flex;
+    padding: 10px;
+    margin-top: 20px;
+ }
+ 
+ .titulo-pelicula{
+    width: 350px;
+    font-size: 24px;
+ }
+ 
+ .clasif-duracion {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+ }
+ 
+ .clasif-duracion .clasif {
+    margin-right: 20px;
+    padding: 3px 8px;
+    background: #555;
+    color: #fff;
+    border-radius: 2px;
+    text-align: center;
+ }
+ 
+ .clasif-duracion .duracion {
+    padding: 3px 8px;
+    background: #111;
+    color: #fff;
+    border-radius: 2px;
+    text-align: center;
+ }
+ 
+ 
+ .horario {
+    display: flex;
+    margin-top: 10px;
+ }
+ 
+ .horario .tipo-clasif {
+    padding: 10px 60px 15px;
+ }
+ 
+ .horarios-items {
+    display: flex;
+    padding-top: 10px;
+ }
+ 
+ .horarios-items div {
+    margin-left: 10px;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 6px;
+    border-radius: 4px;
+ }
+ 

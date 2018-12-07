@@ -37,7 +37,7 @@ function pagina_actual(){
 
 # Funcion para obtener los post determinando cuantos queremos traer por pagina.
 # Return: Los post dependiendo de la pagina que estemos y cuantos post por pagina establecimos.
-function obtener_usuarios($usuarios_por_pagina, $conexion){
+function obtener_usuarios($tipo ,$usuarios_por_pagina, $conexion){
 	//1.- Obtenemos la pagina actual
 	// $pagina_actual = isset($_GET['p']) ? (int)$_GET['p']: 1;
 	// Para reutilizar el codigo creamos una funcion que nos dice la pagina actual.
@@ -47,7 +47,7 @@ function obtener_usuarios($usuarios_por_pagina, $conexion){
 
 	//3.- Preparamos nuestra consulta trayendo la informacion e indicandole desde donde y cuantas filas.
 	// Ademas le pedimos que nos cuente cuantas filas tenemos.
-	$sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM USUARIO LIMIT {$inicio}, {$usuarios_por_pagina}");
+	$sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM {$tipo} LIMIT {$inicio}, {$usuarios_por_pagina}");
 
 	$sentencia->execute();
 	return $sentencia->fetchAll();
@@ -79,6 +79,27 @@ function call_Select($tipo, $conexion ){
 	return $total_post->fetch()['total'];
 
 }
+
+function obt_tabla($num_registro, $conexion, $pag){
+	//1.- Obtenemos la pagina actual
+	// $pagina_actual = isset($_GET['p']) ? (int)$_GET['p']: 1;
+	// Para reutilizar el codigo creamos una funcion que nos dice la pagina actual.
+
+	//2.- Determinamos desde que post se mostrara en pantalla
+	$inicio = (pagina_actual() > 1) ? (pagina_actual() * $num_registro - $num_registro) : 0;
+
+	//3.- Preparamos nuestra consulta trayendo la informacion e indicandole desde donde y cuantas filas.
+	// Ademas le pedimos que nos cuente cuantas filas tenemos.
+	$sentencia = $conexion->prepare("SELECT SQL_CALC_FOUND_ROWS * FROM {$pag} LIMIT {$inicio}, {$num_registro}");
+
+	$sentencia->execute();
+	return $sentencia->fetchAll();
+}
+
+
+
+
+?>
 
 
 

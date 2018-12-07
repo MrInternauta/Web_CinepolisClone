@@ -55,7 +55,7 @@
                     
                     <div class='login-usuario'>
                     <?php 
-                    if( !empty($_SESSION['usuario']) ){
+                    if( !empty($_SESSION['usuario']) && !empty($_SESSION['tipo_user']) ){
                         echo "<a href='profile.php'>
                             <img src='view/assets/images/logo-id.png' width='24px'>
                             <span>MiPerfil</span>
@@ -74,50 +74,53 @@
                     </div>
                 </nav>
 
-                <div class="linea-dos">
-                    <div class="linea-dos-container">
-                        <div class="enlaces">
-                            <div class="pe">Próximos eventos</div>
-                            <div class="pr">Preventa</div>
-                            <div class="cart">Cartelera</div>
-                        </div>
 
-                        <div class="social">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fas fa-mobile-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </header>
+<hr>
+<h1 style='text-center'>Pantalla</h1>
+<hr>
+<div class="container m-5">
+<?php
+for($i = 0; $i<10; $i++){
+    for($j = 0; $j<10; $j++){
+        echo"<input type='checkbox'>";
+    
+    }
+    echo "<br>";
+
+}
+?>
+</div>
 
 
-                        <div class="slider">
-                <a href="#">
-                    <img src="view/assets/images/slider.jpg" width="100%">
-                </a>
-            </div>
+<footer>
+           <div class="linea-tipos">
+               <img src="view/assets/images/cineplis_vip.png" height="65px">
+               <img src="view/assets/images/cinepolis_4DX.png" height="60px">
+               <img src="view/assets/images/cinepolis_macroXE.png" height="100px">
+               <img src="view/assets/images/cinepolis_club.png" height="65px">
+           </div>
 
-            <div class="cartelera">
-                <span class="titulo">EN CARTELERA AHORA MISMO</span>
+           <div class="contacto-container">
+               <div class="contacto">
+                   <span>CONTACTO</span><br>
+                   <span>Av. Universidad #345 Col. Capital, Coatzacoalcos, Ver.</span><br>
+                   <span>01 552 122 60 60</span><br>
+               </div>
 
-                <div class="galeria">
-                        <img src="view/assets/images/p-bohemian.jpg">
-                        <img src="view/assets/images/p-grindelwald.jpg">
-                        <img src="view/assets/images/p-venom.jpg">
-                        <img src="view/assets/images/p-matar-o-morir.jpg">
-                        <br>
-                        <img src="view/assets/images/p-cascanueces.jpg">
-                        <img src="view/assets/images/p-ralph.jpg">
-                        <div class="ver-cartelera">
-                            <a href="#">
-                                CONSULTAR<br><br>
-                                CARTELERA<br><br>
-                                COMPLETA<br>
-                            </a>
-                        </div>
-                </div>
-            </div>
-        </div>
+               <div class="logo-grande">
+                   <img src="view/assets/images/cineplis_vip.png" height="120px">
+               </div>
+           </div>
+       </footer>
+
+       <div class="linea-gris">
+           <div>
+               <span>Cinépolis México, SA. DE C.V.</span>
+               <a href="login.php">ADMINISTRATIVO</a>
+           </div>
+       </div>
+<script type="text/javascript" src="view/assets/js/main.js"></script>
+<script type="text/javascript" src="view/assets/js/fontawesome.js"></script>
+        
+    </body>
+</html>

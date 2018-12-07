@@ -12,17 +12,22 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST')
         $user = $_POST['usuario'];
         require 'function.php';
         $conn = conectarabd();
-        $statement = $conn->prepare('SELECT * FROM USUARIO WHERE id_usuario = :id AND contrasenia = :pass');
+        $statement = $conn->prepare('CALL MOSTRAR_EMPLEADO(:id)');
         $statement->execute( array(
-            ':id' => $user,
-            ':pass' => $pass
-        ) );
+            ':id' => $user        ) );
         $resultados = $statement->fetch();
         if( !$resultados ){
             $error = 'Usuario no encontrado';
         }else{
-        $_SESSION['usuario'] = $resultados;
-        header('Location: profile.php');
+            if($resultados['contrasenia'] == $_POST['pass']){
+                $_SESSION['usuario'] = $resultados;
+                echo $_SESSION['usuario']['contrasenia'];
+                header('Location: profile.php');
+            }else{
+                $error = 'Error al iniciar sesion';
+            }
+        
+        
     }
 
     }else{

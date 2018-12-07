@@ -93,6 +93,6 @@ if($_SERVER['REQUEST_METHOD']== "GET"){
 }
 
 
-require 'view/usuario-nuevo.php';
+require 'view/combo-nuevo.php';
 
 ?>

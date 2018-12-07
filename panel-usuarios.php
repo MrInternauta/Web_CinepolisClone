@@ -6,7 +6,7 @@ if(empty($_SESSION['usuario'])   || $_SESSION['usuario']['tipo_user'] != 'emplea
 }
 $conn = conectarabd();
 
-$statement = obtener_usuarios(5, $conn);
+$statement = obtener_usuarios( 'USUARIO',5, $conn);
 require 'view/admin-usuarios.php';
 
 ?>

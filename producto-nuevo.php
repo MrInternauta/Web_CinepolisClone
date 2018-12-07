@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 require 'function.php';
@@ -9,27 +10,25 @@ $error = '';
 if($_SERVER['REQUEST_METHOD']== 'POST'){    
     
     if( 
-        !empty($_POST['nombre']) &&
-         !empty($_POST['apellido']) &&
-         !empty($_POST['email']) &&
-         !empty($_POST['pass']) &&
-         !empty($_POST['nacimiento']) &&
-         !empty($_POST['tipo'])
+  
+         !empty($_POST['titulo']) &&
+         !empty($_POST['Presentacion']) &&
+         !empty($_POST['stock']) &&
+         !empty($_POST['codigo']) &&
+         !empty($_POST['precio']) 
           ) {
               //GET DATA
-            $nombre =  limpiarDatos($_POST['nombre']);
-            $apellido =  limpiarDatos($_POST['apellido']);
-            $email =  ($_POST['email']);
-            $pass =  limpiarDatos($_POST['pass']);
-            $nacimiento =  limpiarDatos($_POST['nacimiento']);
-            $tipo =  limpiarDatos($_POST['tipo']);
-            $id_direccion;
-            $id_usuario;
+            $titulo =  limpiarDatos($_POST['titulo']);
+            $Presentacion =  limpiarDatos($_POST['Presentacion']);
+            $stock =  ($_POST['stock']);
+            $codigo =  limpiarDatos($_POST['codigo']);
+            $precio =  limpiarDatos($_POST['precio']);
+            
             
             //realiza update 
-            if(!empty($_SESSION['id_usuario']) && !empty($_SESSION['id_direccion'])){
-                $id_direccion = $_SESSION['id_direccion'];
-                $id_usuario = $_SESSION['id_usuario'];
+            if(!empty($_SESSION['id_producto']) && !empty($_SESSION['id_categoria'])){
+                $id_direccion = $_SESSION['id_producto'];
+                $id_usuario = $_SESSION['id_categoria'];
                 $statement = $conn->prepare('CALL EDITAR_USUARIO(:ID_USU, :ID_DIR, :NOM, :APL, :COR,	:CONT, :FECH, :TIP, :IM)');
             }else{
                 $total =   total_registros('USUARIO', $conn);
@@ -50,8 +49,8 @@ if($_SERVER['REQUEST_METHOD']== 'POST'){
                 ':TIP' => $tipo, 
                 ':IM' => ''
             ) );
-            $_SESSION['id_direccion'] = null;
-            $_SESSION['id_usuario'] = null;
+            $_SESSION['id_producto'] = null;
+            $_SESSION['id_categoria'] = null;
             echo "Listo";
         header('Location: panel-usuarios.php');
     }else{
@@ -67,22 +66,21 @@ if($_SERVER['REQUEST_METHOD']== "GET"){
         $id = limpiarDatos($_GET['id']);
         switch ($tipo) {
             case 'view':
-            $statement = $conn->prepare('CALL MOSTRAR_USUARIO(:id)');
+            $statement = $conn->prepare('SELECT * FROM ARTICULO WHERE id_articulo = :id');
             $usuario = $statement->execute( array(
                 ':id' => $id
             ) );
             $usuario = $statement->fetch();
-            //print_r($usuario);
                 break;
 
             case 'delete':
                 
-            $statement = $conn->prepare('DELETE FROM USUARIO WHERE id_usuario = :id');
+            $statement = $conn->prepare('DELETE FROM ARTICULO WHERE id_articulo = :id');
             $usuario = $statement->execute( array(
                 ':id' => $id
             ) );
             $usuario = $statement->fetch();
-            header('Location: panel-usuarios.php');
+            header('Location: panel-productos.php');
                 break;
             
             default:
@@ -92,7 +90,6 @@ if($_SERVER['REQUEST_METHOD']== "GET"){
     }
 }
 
-
-require 'view/usuario-nuevo.php';
+require 'view/producto-nuevo.php';
 
 ?>

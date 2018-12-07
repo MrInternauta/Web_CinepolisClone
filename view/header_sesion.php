@@ -18,8 +18,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="panel-administrativo.php">
-    <img src="https://static.cinepolis.com/img/lg-cinepolis.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    Cinepolis
+    <img src="https://static.cinepolis.com/img/lg-cinepolis.png" width="120"  class="d-inline-block align-top" alt="">
   </a>  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -52,10 +51,10 @@
           Venta
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="panel-boleto.php">Vender Boleto</a>
+          <!--<a class="dropdown-item" href="panel-boleto.php">Vender Boleto</a>-->
           <a class="dropdown-item" href="panel-dulceria.php">Dulceria</a>
           <a class="dropdown-item" href="panel-inventario.php">Ver inventario</a>
-          <a class="dropdown-item" href="panel-cartelera.php">Ver cartelera</a>
+          <!--<a class="dropdown-item" href="panel-cartelera.php">Ver cartelera</a>-->
      
         </div>
       </li>
@@ -66,7 +65,7 @@
           Perfil
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="usuario-nuevo.php?type=view&id=<?php if(!empty($_SESSION['usuario']['id_usuario'])){echo $_SESSION['usuario']['id_usuario']; } ?>">Editar perfil</a>
+          <a class="dropdown-item" href="usuario-nuevo.php?type=view&id=<?php if(!empty($_SESSION['usuario'][0])){echo $_SESSION['usuario'][0]; } ?>">Editar perfil</a>
           <a class="dropdown-item" href="cerrar.php">Cerrar session</a>
         </div>
       </li>
