@@ -1,6 +1,6 @@
 
 
-# PEDIRTAXI
+# CINEPOLISCLONE
 Is a little  clone system of cinepolis 
 ## Descripcion 
 Un pequeño CRUD php de la materia para la materia de BD
